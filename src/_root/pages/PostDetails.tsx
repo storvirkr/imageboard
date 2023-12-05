@@ -2,8 +2,7 @@ import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
 import { Button } from "@/components/ui/button";
 import { useUserContext } from "@/context/AuthContext";
-import { deletePost } from "@/lib/appwrite/api";
-import { useDeletePost, useGetPostById, useGetUserPosts } from "@/lib/react-query/queriesAndMutations";
+import { useDeletePost, useGetPostById } from "@/lib/react-query/queriesAndMutations";
 import { formatRelativeDate } from "@/lib/utils";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -12,9 +11,6 @@ const PostDetails = () => {
   const { id } = useParams();
   const { data: post, isPending } = useGetPostById(id);
   const { user } = useUserContext();
-  const { data: userPosts, isLoading: isUserPostLoading } = useGetUserPosts(
-    post?.creator.$id
-  );
   const { mutate: deletePost } = useDeletePost();
   const handleDeletePost = () => {
     deletePost({ postId: id, imageId: post?.imageId });
