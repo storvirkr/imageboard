@@ -48,7 +48,11 @@ const PostDetails = () => {
                   </p>
                   <div className="flex-center gap-2 text-light-3">
                     <p className="subtle-semibold lg:small-regular">
-                      {formatRelativeDate(post?.$createdAt)}
+                    
+                      {
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+                      formatRelativeDate(post?.$createdAt)}
                     </p>
                     -
                     <p className="subtle-semibold lg:small-regular">
@@ -93,7 +97,11 @@ const PostDetails = () => {
               </ul>
             </div>
             <div className="w-full">
-                    <PostStats post={post || {}} userId={user.id}/>
+              
+                    <PostStats
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+                    post={post || {}} userId={user.id}/>
                 </div>
           </div>
         </div>

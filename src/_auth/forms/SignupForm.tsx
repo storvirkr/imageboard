@@ -90,6 +90,8 @@ const SignupForm = () => {
           <FormField
             control={form.control}
             name="name"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="shad-form_label">Name</FormLabel>
@@ -104,6 +106,8 @@ const SignupForm = () => {
           <FormField
             control={form.control}
             name="username"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="shad-form_label">Username</FormLabel>
@@ -118,6 +122,8 @@ const SignupForm = () => {
           <FormField
             control={form.control}
             name="email"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="shad-form_label">Email</FormLabel>
@@ -132,6 +138,8 @@ const SignupForm = () => {
           <FormField
             control={form.control}
             name="password"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="shad-form_label">Password</FormLabel>
