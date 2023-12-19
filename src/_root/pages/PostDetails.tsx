@@ -2,7 +2,7 @@ import Loader from "@/components/shared/Loader";
 import PostStats from "@/components/shared/PostStats";
 import { Button } from "@/components/ui/button";
 import { useUserContext } from "@/context/AuthContext";
-import { useDeletePost, useGetPostById } from "@/lib/react-query/queriesAndMutations";
+import { useDeletePost, useGetPostById } from "@/lib/react-query/queries";
 import { formatRelativeDate } from "@/lib/utils";
 import { Link, useNavigate, useParams } from "react-router-dom";
 

@@ -143,6 +143,20 @@ export const useSignInAccount = () => {
     });
   };
 
+  export const useGetPosts = () => {
+    return useInfiniteQuery({
+      queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
+      queryFn: getInfinitePosts as any,
+      getNextPageParam: (lastPage: any) => {
+        if (lastPage && lastPage.documents.length === 0) {
+          return null;
+        }
+          const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
+        return lastId;
+      },
+    });
+  };
+  
   export const useSearchPosts = (searchTerm: string) => {
     return useQuery({
       queryKey: [QUERY_KEYS.SEARCH_POSTS, searchTerm],
@@ -158,23 +172,6 @@ export const useSignInAccount = () => {
     });
   };
 
-  export const useGetPosts = () => {
-    return useInfiniteQuery(
-      {
-      queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-      queryFn: getInfinitePosts as unknown,
-      getNextPageParam: (lastPage: unknown) => {
-        // If there's no data, there are no more pages.
-        if (lastPage && lastPage.documents.length === 0) {
-          return null;
-        }
-  
-        // Use the $id of the last document as the cursor.
-        const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
-        return lastId;
-      },
-    });
-  };
 
   export const useDeletePost = () => {
     const queryClient = useQueryClient();
