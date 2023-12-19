@@ -146,6 +146,7 @@ export const useSignInAccount = () => {
   export const useGetPosts = () => {
     return useInfiniteQuery({
       queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
+      initialPageParam: undefined,
       queryFn: getInfinitePosts as any,
       getNextPageParam: (lastPage: any) => {
         if (lastPage && lastPage.documents.length === 0) {
